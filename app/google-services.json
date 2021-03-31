@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "972763915795",
+    "project_id": "chat-52e35",
+    "storage_bucket": "chat-52e35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972763915795:android:4fca3da44707ab10bd81e6",
+        "android_client_info": {
+          "package_name": "br.edu.ifrn.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972763915795-nmrqo5rt058suims8prnimikar1sp3et.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.edu.ifrn.chat",
+            "certificate_hash": "6e69901e47c67baadcd3ce5b85d1d58aa0827de6"
+          }
+        },
+        {
+          "client_id": "972763915795-turhabad43t0ge5ob6j76214anntpt2v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp4odzDgdHVL3dHSLbREVPnB3SQm2A1NY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972763915795-turhabad43t0ge5ob6j76214anntpt2v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
