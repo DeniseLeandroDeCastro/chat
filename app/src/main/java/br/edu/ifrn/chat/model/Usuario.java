@@ -16,8 +16,7 @@ public class Usuario {
     private String senha;
     private String foto;
 
-    public Usuario() {
-    }
+    public Usuario() { }
 
     public void atualizar() {
         String identificadorUsuario = UsuarioFirebase.getIdentificadorUsuario();
@@ -31,17 +30,14 @@ public class Usuario {
     public Map<String, Object> converterParaMap() {
         HashMap<String, Object> usuarioMap = new HashMap<>();
         usuarioMap.put("Id", getId());
-        usuarioMap.put("nome", getNome());
-        usuarioMap.put("email", getEmail());
-        usuarioMap.put("senha", getSenha());
-        usuarioMap.put("foto", getFoto());
-
         return usuarioMap;
     }
 
     public void salvar() {
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
-        DatabaseReference usuario = firebaseRef.child("usuarios").child(getId());
+        DatabaseReference usuario = firebaseRef
+                .child("usuarios")
+                .child(getId());
         usuario.setValue(this);
     }
 
