@@ -2,13 +2,14 @@ package br.edu.ifrn.chat.model;
 
 import com.google.firebase.database.DatabaseReference;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 import br.edu.ifrn.chat.config.ConfiguracaoFirebase;
 import br.edu.ifrn.chat.helper.UsuarioFirebase;
 
-public class Usuario {
+public class Usuario implements Serializable {
 
     private String id;
     private String nome;
