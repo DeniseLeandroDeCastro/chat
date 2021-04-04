@@ -10,13 +10,19 @@ import com.google.firebase.database.DatabaseReference;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.edu.ifrn.chat.R;
+import br.edu.ifrn.chat.adapter.MensagensAdapter;
 import br.edu.ifrn.chat.config.ConfiguracaoFirebase;
 import br.edu.ifrn.chat.helper.Base64Custom;
 import br.edu.ifrn.chat.helper.UsuarioFirebase;
@@ -35,6 +41,10 @@ public class ChatActivity extends AppCompatActivity {
     private String idUsuarioRemetente;
     private String idUsuarioDestinatario;
 
+    private RecyclerView recyclerMensagens;
+    private MensagensAdapter adapter;
+    private List<Mensagem> mensagens = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +61,7 @@ public class ChatActivity extends AppCompatActivity {
         textViewNome = findViewById(R.id.textViewNomeChat);
         circleImageViewFoto = findViewById(R.id.circleImageFotoChat);
         editMensagem = findViewById(R.id.editMensagem);
+        recyclerMensagens = findViewById(R.id.recyclerMensagens);
 
         //Recupera dados do usuário remetente
         idUsuarioRemetente = UsuarioFirebase.getIdentificadorUsuario();
@@ -75,6 +86,16 @@ public class ChatActivity extends AppCompatActivity {
             //Recuperar dados do usuário destinatário
             idUsuarioDestinatario = Base64Custom.codificarBase64(usuarioDestinatario.getEmail());
         }
+
+        //Configuração adapter
+        adapter = new MensagensAdapter(mensagens, getApplicationContext());
+
+        //Configuração recyclerview
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerMensagens.setLayoutManager(layoutManager);
+        recyclerMensagens.setHasFixedSize(true);
+        recyclerMensagens.setAdapter(adapter);
+
     }
     //Enviar mensagem na sala de chat
     public void enviarMensagem(View view) {
